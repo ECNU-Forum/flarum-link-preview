@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ecnu-im\\LinkPreview\\": "src/"
+            "Datlechin\\LinkPreview\\": "src/"
         }
     },
     "homepage": "https://ngoquocdat.com",
