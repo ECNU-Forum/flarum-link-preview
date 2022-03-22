@@ -1,5 +1,5 @@
 {
-    "name": "datlechin/flarum-link-preview",
+    "name": "ecnu.im/flarum-link-preview",
     "description": "Automatically display a rich preview of the link contents.",
     "keywords": [
         "flarum",
@@ -18,6 +18,10 @@
             "name": "Ngo Quoc Dat",
             "email": "datlechin@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "jjaychen",
+            "email": "jjaychen1e@gmail.com"
         }
     ],
     "support": {
@@ -26,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Datlechin\\LinkPreview\\": "src/"
+            "ecnu-im\\LinkPreview\\": "src/"
         }
     },
     "homepage": "https://ngoquocdat.com",

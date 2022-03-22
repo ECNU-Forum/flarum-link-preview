@@ -15,6 +15,10 @@ app.initializers.add('datlechin/flarum-link-preview', () => {
 
     links.forEach((link) => {
       const href = link.getAttribute('href');
+      // If domain is not a http or https url, for example, an exmail, return.
+      if (!href.match(/^(http|https):\/\//)) {
+        return;
+      }
       const domain = href.split('/')[2].replace('www.', '');
 
       if (!link.classList.contains('PostMention') || !link.classList.contains('UserMention')) {
