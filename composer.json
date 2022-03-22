@@ -1,5 +1,5 @@
 {
-    "name": "ecnu.im/flarum-link-preview",
+    "name": "ecnu-im/flarum-link-preview",
     "description": "Automatically display a rich preview of the link contents.",
     "keywords": [
         "flarum",
