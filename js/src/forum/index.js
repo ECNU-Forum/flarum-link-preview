@@ -2,7 +2,7 @@ import app from 'flarum/forum/app';
 import { extend } from 'flarum/common/extend';
 import CommentPost from 'flarum/forum/components/CommentPost';
 
-app.initializers.add('datlechin/flarum-link-preview', () => {
+app.initializers.add('ecnu-im/flarum-link-preview', () => {
   extend(CommentPost.prototype, 'oncreate', function () {
     const blacklist = app.forum.attribute('datlechin-link-preview.blacklist');
     const blacklistArray = blacklist

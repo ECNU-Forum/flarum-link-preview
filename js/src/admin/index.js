@@ -1,6 +1,6 @@
 import app from 'flarum/admin/app';
 
-app.initializers.add('datlechin/flarum-link-preview', () => {
+app.initializers.add('ecnu-im/flarum-link-preview', () => {
   app.extensionData
     .for('datlechin-link-preview')
     .registerSetting({
