@@ -36,7 +36,6 @@ class ScrapperController implements RequestHandlerInterface
         // check if the content-type contains "text/html"
         $client = new Client()
         try {
-            $client->setUserAgent('TelegramBot (like TwitterBot)');
             $contentType = $client->head($url)->getHeaderLine('content-type');
             if (strpos($contentType, "text/html") === false) {
                 return new JsonResponse([
