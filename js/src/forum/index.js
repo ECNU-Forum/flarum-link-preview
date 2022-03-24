@@ -78,9 +78,10 @@ app.initializers.add('ecnu-im/flarum-link-preview', () => {
 
           link.remove();
 
+          const apiEndpoint = app.forum.attribute('datlechin-link-preview.blacklist') || app.forum.attribute('apiUrl') + '/datlechin-link-preview'
           app
             .request({
-              url: app.forum.attribute('apiUrl') + '/datlechin-link-preview?url=' + encodeURIComponent(href),
+              url: apiEndpoint + '?url=' + encodeURIComponent(href),
               method: 'GET',
             })
             .then((data) => {

@@ -7,6 +7,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface;
 use spekulatius\phpscraper;
+use GuzzleHttp\Client;
 
 class ScrapperController implements RequestHandlerInterface
 {
@@ -32,9 +33,23 @@ class ScrapperController implements RequestHandlerInterface
             ]);
         }
 
+        // check if the content-type contains "text/html"
+        $client = new Client();
+        $contentType = $client->head($url)->getHeadLine('content-type');
+        if (strpos($contentType, "text/html") === false) {
+            return new JsonResponse([
+                'content_type' => $contentType,
+                'site_name' => null,
+                'title' => null,
+                'description' => null,
+                'image' => null,     
+            ]);
+        }
+
         $this->web->go($url);
 
         return new JsonResponse([
+            'content_type' => $contentType,
             'site_name' => $this->web->openGraph['og:site_name'] ?? null,
             'title' => $this->web->title ?? $this->web->openGraph['og:title'] ?? null,
             'description' => $this->web->description ?? $this->web->openGraph['og:description'] ?? null,
