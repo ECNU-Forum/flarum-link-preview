@@ -11,7 +11,8 @@
     "license": "MIT",
     "require": {
         "flarum/core": "^1.2",
-        "datlechin/phpscraper": "^0.5.3"
+        "datlechin/phpscraper": "^0.5.3",
+        "guzzlehttp/guzzle": "^7.0",
     },
     "authors": [
         {
@@ -22,10 +23,14 @@
         {
             "name": "jjaychen",
             "email": "jjaychen1e@gmail.com"
+        },
+        {
+            "name": "cubercsl",
+            "email": "hi@cubercsl.site"
         }
     ],
     "support": {
-        "source": "https://github.com/datlechin/flarum-birthdays",
+        "source": "https://github.com/ecnu-im/flarum-link-preview",
         "forum": "https://discuss.flarum.org/d/30011"
     },
     "autoload": {

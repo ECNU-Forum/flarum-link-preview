@@ -28,5 +28,6 @@ return [
 
     (new Extend\Settings())
         ->serializeToForum('datlechin-link-preview.blacklist', 'datlechin-link-preview.blacklist')
-        ->serializeToForum('datlechin-link-preview.convertMediaURLs', 'datlechin-link-preview.convert_media_urls', 'boolval', true),
+        ->serializeToForum('datlechin-link-preview.convertMediaURLs', 'datlechin-link-preview.convert_media_urls', 'boolval', true)
+        ->serializeToForum('datlechin-link-preview.apiEndpoint', 'datlechin-link-preview.api_endpoint'),
 ];
