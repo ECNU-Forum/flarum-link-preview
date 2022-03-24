@@ -34,8 +34,9 @@ class ScrapperController implements RequestHandlerInterface
         }
 
         // check if the content-type contains "text/html"
-        $client = new Client();
+        $client = new Client()
         try {
+            $client->setUserAgent('TelegramBot (like TwitterBot)');
             $contentType = $client->head($url)->getHeaderLine('content-type');
             if (strpos($contentType, "text/html") === false) {
                 return new JsonResponse([
@@ -49,7 +50,8 @@ class ScrapperController implements RequestHandlerInterface
         } catch (\Exception $e) {
             // Some websites do not handle head requests correctly :(
         }
-
+        
+        $this->web->setAgent('TelegramBot (like TwitterBot)');
         $this->web->go($url);
 
         return new JsonResponse([
