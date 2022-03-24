@@ -44,7 +44,7 @@ class ScrapperController implements RequestHandlerInterface
                     'title' => null,
                     'description' =>  null,
                     'image' => null,
-                ]);
+                ], 200, [ 'cache-control' => 'max-age=86400']);
             }
         } catch (\Exception $e) {
             // Some websites do not handle head requests correctly :(
@@ -59,6 +59,6 @@ class ScrapperController implements RequestHandlerInterface
             'title' => $this->web->title ?? $this->web->openGraph['og:title'] ?? $this->web->twitterCard['twitter:title'] ?? null,
             'description' => $this->web->description ?? $this->web->openGraph['og:description'] ?? $this->web->twitterCard['twitter:description'] ?? null,
             'image' => $this->web->image ?? $this->web->twitterCard['twitter:image'] ?? $this->web->openGraph['og:image'] ?? null,
-        ]);
+        ], 200, [ 'cache-control' => 'max-age=86400']);
     }
 }
