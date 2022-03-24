@@ -55,10 +55,10 @@ class ScrapperController implements RequestHandlerInterface
 
         return new JsonResponse([
             'content_type' => $contentType,
-            'site_name' => $this->web->openGraph['og:site_name'] ?? null,
-            'title' => $this->web->title ?? $this->web->openGraph['og:title'] ?? null,
-            'description' => $this->web->description ?? $this->web->openGraph['og:description'] ?? null,
-            'image' => $this->web->image ?? $this->web->openGraph['og:image'] ?? null,
+            'site_name' => $this->web->openGraph['og:site_name'] ?? $this->web->openGraph['twitter:site'] ?? null,
+            'title' => $this->web->title ?? $this->web->openGraph['og:title'] ?? $this->web->openGraph['twitter:title'] ?? null,
+            'description' => $this->web->description ?? $this->web->openGraph['og:description'] ?? $this->web->openGraph['twitter:description'] ?? null,
+            'image' => $this->web->image ?? $this->web->openGraph['twitter:image'] ?? $this->web->openGraph['og:image'] ?? null,
         ]);
     }
 }
