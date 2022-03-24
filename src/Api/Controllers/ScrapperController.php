@@ -35,7 +35,7 @@ class ScrapperController implements RequestHandlerInterface
 
         // check if the content-type contains "text/html"
         $client = new Client();
-        $contentType = $client->head($url)->getHeadLine('content-type');
+        $contentType = $client->head($url)->getHeaderLine('content-type');
         if (strpos($contentType, "text/html") === false) {
             return new JsonResponse([
                 'content_type' => $contentType,
