@@ -35,15 +35,19 @@ class ScrapperController implements RequestHandlerInterface
 
         // check if the content-type contains "text/html"
         $client = new Client();
-        $contentType = $client->head($url)->getHeaderLine('content-type');
-        if (strpos($contentType, "text/html") === false) {
-            return new JsonResponse([
-                'content_type' => $contentType,
-                'site_name' => null,
-                'title' => null,
-                'description' => null,
-                'image' => null,     
-            ]);
+        try {
+            $contentType = $client->head($url)->getHeaderLine('content-type');
+            if (strpos($contentType, "text/html") === false) {
+                return new JsonResponse([
+                    'content_type' => $contentType,
+                    'site_name' => null,
+                    'title' => null,
+                    'description' =>  null,
+                    'image' => null,
+                ]);
+            }
+        } catch (\Exception $e) {
+            // Some websites do not handle head requests correctly :(
         }
 
         $this->web->go($url);
