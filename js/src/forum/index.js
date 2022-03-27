@@ -90,7 +90,7 @@ app.initializers.add('ecnu-im/flarum-link-preview', () => {
               img.setAttribute('src', data.image ? data.image : 'https://www.google.com/s2/favicons?sz=64&domain_url=' + siteUrl);
               titleLink.href = data.url ? data.url : href;
               titleLink.textContent = data.title ? data.title : domain;
-              description.textContent = data.description ? data.description : '';
+              description.textContent = data.description ? data.description.substr(0,48)+'...' : '';
               domainLink.textContent = data.site_name ? data.site_name : domain;
 
               if (data.error) {
