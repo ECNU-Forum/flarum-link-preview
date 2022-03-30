@@ -39,12 +39,11 @@ class ScrapperController implements RequestHandlerInterface
             $contentType = $client->head($url)->getHeaderLine('content-type');
             if (strpos($contentType, "text/html") === false) {
                 return new JsonResponse([
-                    'content_type' => $contentType,
                     'site_name' => null,
                     'title' => null,
                     'description' =>  null,
                     'image' => null,
-                ], 200, [ 'cache-control' => 'max-age=86400']);
+                ]);
             }
         } catch (\Exception $e) {
             // Some websites do not handle head requests correctly :(
@@ -54,11 +53,10 @@ class ScrapperController implements RequestHandlerInterface
         $this->web->go($url);
 
         return new JsonResponse([
-            'content_type' => $contentType,
             'site_name' => $this->web->openGraph['og:site_name'] ?? $this->web->twitterCard['twitter:site'] ?? null,
             'title' => $this->web->title ?? $this->web->openGraph['og:title'] ?? $this->web->twitterCard['twitter:title'] ?? null,
             'description' => $this->web->description ?? $this->web->openGraph['og:description'] ?? $this->web->twitterCard['twitter:description'] ?? null,
             'image' => $this->web->image ?? $this->web->twitterCard['twitter:image'] ?? $this->web->openGraph['og:image'] ?? null,
-        ], 200, [ 'cache-control' => 'max-age=86400']);
+        ]);
     }
 }
