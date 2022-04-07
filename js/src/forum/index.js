@@ -95,9 +95,6 @@ app.initializers.add('ecnu-im/flarum-link-preview', () => {
 
               if (data.error) {
                 titleLink.textContent = app.translator.trans('datlechin-link-preview.forum.site_cannot_be_reached');
-                titleLink.removeAttribute('href');
-                description.textContent = '';
-                domainLink.removeAttribute('href');
               }
             });
         }
